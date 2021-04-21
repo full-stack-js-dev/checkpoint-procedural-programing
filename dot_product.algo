@@ -1,0 +1,62 @@
+/////////////////////////////////////////
+//    parameter passed by reference    //
+/////////////////////////////////////////
+PROCEDURE dot_product1(VAR v1, v2 : FLOAT, n : INTEGER)
+VAR
+
+    ps : INTEGER :=0 ; 
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+    FOR j FROM 0 TO v2.length-1 STEP 1  DO
+    ps = ps+ (v1[i]*v2[j]);
+    END_FOR
+END_FOR
+END
+/////////////////////////////////////////
+//      parameter passed by value      //
+/////////////////////////////////////////
+PROCEDURE dot_product(v1, v2 : FLOAT, n: INTEGER)
+VAR
+
+    ps : INTEGER :=0 ; 
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+    FOR j FROM 0 TO v2.length-1 STEP 1  DO
+    ps = ps+ (v1[i]*v2[j]);
+    END_FOR
+END_FOR
+END
+
+
+ALGORITHM product 
+VAR
+    vector1, vector2 : ARRAY_OF INTEGER[n];
+    n: INTEGER
+    ps : INTEGER :=0;
+BEGIN
+    REPEAT
+        Read(n);
+    UNTIL (n > 0);
+    REPEAT
+        FOR i FROM 0 TO n STEP 1  DO
+            Read(vector1[i])
+        END_FOR
+    UNTIL (vector1[i] > 0)
+    REPEAT
+        FOR i FROM 0 TO n STEP 1  DO
+            Read(vector2[i])
+        END_FOR
+    UNTIL (vector2[i] > 0)
+     FOR i FROM 0 TO n STEP 1  DO
+        FOR j FROM 0 TO n STEP 1  DO
+            IF (dot_product(vector1[i], vector2[j], n) = 0) THEN
+                Write ( "v1 and v2 are orthogonal")
+            ELSE
+                 Write ( "v1 and v2 are not orthogonal")
+    END_IF
+        END_FOR
+    END_FOR
+    
+    
+
+END

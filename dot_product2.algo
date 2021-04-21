@@ -1,0 +1,51 @@
+/////////////////////////////////////////
+//    parameter passed by reference    //
+/////////////////////////////////////////
+FUNCTION dot_product(VAR v1, v2 : FLOAT, n : INTEGER) : INTEGER
+VAR
+    i :  INTEGER := 0;
+    ps : INTEGER :=0 ; 
+BEGIN
+    FOR i FROM 0 TO n STEP 1  DO
+    ps = ps+ (v1[i]*v2[j]);
+    END_FOR
+END_FOR
+RETURN ps ; 
+END
+
+
+
+ALGORITHM product 
+VAR
+    vector1, vector2 : ARRAY_OF INTEGER[n];
+    n: INTEGER
+    i, j, product : INTEGER :=0;
+    
+BEGIN
+    REPEAT
+        Read(n);
+    UNTIL (n > 0);
+    REPEAT
+        FOR i FROM 0 TO n STEP 1  DO
+            Read(vector1[i])
+        END_FOR
+    UNTIL (vector1[i] > 0)
+    REPEAT
+        FOR i FROM 0 TO n STEP 1  DO
+            Read(vector2[i])
+        END_FOR
+    UNTIL (vector2[i] > 0)
+    FOR i FROM 0 TO n STEP 1  DO
+        FOR j FROM 0 TO n STEP 1  DO
+                product = dot_product(vector1[i], vector2[j] , n);
+
+        END_FOR
+    END_FOR
+    
+    IF (product = 0) THEN
+        Write ( "v1 and v2 are orthogonal")
+    ELSE
+        Write ( "v1 and v2 are not orthogonal")
+    END_IF
+
+END
